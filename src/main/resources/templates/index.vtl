@@ -62,24 +62,24 @@
                 #foreach ($sighting in $sightings)
                 <tr>
                     <!--Ranger's Name-->
-                    <td>$sighting.getName()</td>
+                    <td><strong>$sighting.getName()<strong></td>
 
                     <!--Location of Sighting-->
-                    <td>$sighting.getLocation()</td>
+                    <td><strong>$sighting.getLocation()</strong></td>
                     <!--Animal's Name-->
 
-                    <td>$sighting.getAnimal().getName()</td>
+                    <td><strong>$sighting.getAnimal().getName()</strong></td>
 
                     <!--Animal's Age-->
-                    <td>$sighting.getAnimal().getAge()</td>
+                    <td><strong>$sighting.getAnimal().getAge()</strong></td>
 
                     <!--Animal's Health-->
-                    <td>$sighting.getAnimal().getHealth()</td>
+                    <td><strong>$sighting.getAnimal().getHealth()</strong></td>
 
                     <!--Animal's Species-->
-                    <td>$sighting.getAnimal().getSpecies()</td>
+                    <td><strong>$sighting.getAnimal().getSpecies()</strong></td>
 
-                    <td>$sighting.getTimestamp()</td>
+                    <td><strong>$sighting.getTimestamp()</strong></td>
                 </tr>
                 #end
                 </tbody>
