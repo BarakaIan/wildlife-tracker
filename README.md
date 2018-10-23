@@ -1,7 +1,7 @@
 # wildlife-tracker
 A website for rangers to track wildlife activities that go around newborn , mature and old animals checking their health and species
 
-<img src="https://media.glamour.com/photos/5b0445a8f3eab061599ef3da/master/pass/hair-salon.jpg" alt="Hair Saloon">
+<img src="http://envirocivil.com/wp-content/uploads/2012/07/asdasd.jpg" alt="">
 <h1 align="center">
   Wildlife tacker
 </h1>
@@ -36,17 +36,17 @@ A website for rangers to track wildlife activities that go around newborn , matu
 ## Key Features
 
 * This is a program that will allow the rangers to write information on animals they spot<br>
-*The program will also enable the ranger to store endangered animals<br>
-*The program facilitates the age brackets of animals<br>
+* The program will also enable the ranger to store endangered animals<br>
+* The program facilitates the age brackets of animals<br>
 
 ## Technologies Used
 
 The program is designed and developed using latest Technology, Hence making it Scalable and flexible.The following are Technologies USed:<br>
-*Java<br>
-*Spark<br>
-*Bootstrap<br>
-*Html 5<br>
-*Css
+* Java<br>
+* Spark<br>
+* Bootstrap<br>
+* Html 5<br>
+* Css
 
 
 ## Program Specs.
@@ -66,11 +66,11 @@ The program is designed and developed using latest Technology, Hence making it S
     Output :Health<br>
 
 ## How to Use
-`Database installation
-In PSQL:
-CREATE DATABASE wildlife_tracker;
-CREATE TABLE animals(id serial PRIMARY KEY, name varchar, age varchar, species varchar, health varchar);
-CREATE TABLE sighting (id serial PRIMARY KEY, name varchar, location varchar, animalId int,timestamp timestamp);
+Database installation
+* In PSQL:
+* CREATE DATABASE wildlife_tracker;
+* CREATE TABLE animals(id serial PRIMARY KEY, name varchar, age varchar, species varchar, health varchar);
+* CREATE TABLE sighting (id serial PRIMARY KEY, name varchar, location varchar, animalId int,timestamp timestamp);
 
 This software uses following open source packages.
 
