@@ -3,26 +3,38 @@ import org.sql2o.*;
 import java.util.List;
 
 public class Animal {
-    private String name;
-    private int id;
-    public Animal(String name){
-        this.name = name;
-    }
+    protected String name;
+    protected String age;
+    protected String species;
+    protected String health;
+    protected int id;
 
     public String getName() {
         return name;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public String getSpecies() {
+        return species;
+    }
+
+    public String getHealth() {
+        return health;
     }
 
     public int getId() {
         return id;
     }
 
-    public static List<Animal> all(){
-        String sql = "SELECT * FROM animals";
-        try (Connection con = DB.sql2o.open()){
-            return con.createQuery(sql).executeAndFetch(Animal.class);
-        }
-    }
+//    public static List<Animal> all(){
+//        String sql = "SELECT * FROM animals";
+//        try (Connection con = DB.sql2o.open()){
+//            return con.createQuery(sql).executeAndFetch(Animal.class);
+//        }
+//    }
 
     public static Animal find(int id){
         try(Connection con = DB.sql2o.open()){
@@ -36,9 +48,12 @@ public class Animal {
 
     public void save(){
         try(Connection con = DB.sql2o.open()){
-            String sql = "INSERT INTO animals(name) VALUES(:name)";
+            String sql = "INSERT INTO animals(name, age, health, species) VALUES(:name, :age, :health, :species)";
             this.id=(int) con.createQuery(sql, true)
-                    .addParameter("name", name)
+                    .addParameter("name", this.name)
+                    .addParameter("age", this.age)
+                    .addParameter("health", this.health)
+                    .addParameter("species", this.species)
                     .executeUpdate()
                     .getKey();
         }
@@ -51,7 +66,11 @@ public class Animal {
         }
         else {
             Animal newAnimal = (Animal) otherAnimal;
-            return  this.getName().equals(newAnimal.getName());
+            return  this.getName().equals(newAnimal.getName())&&
+                    this.getSpecies().equals(newAnimal.getSpecies())&&
+                    this.getAge().equals(newAnimal.getAge())&&
+                    this.getHealth().equals(newAnimal.getHealth())&&
+                    this.getId()==(newAnimal.getId());
         }
     }
 }
