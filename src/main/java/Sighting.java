@@ -72,7 +72,7 @@ public class Sighting implements DataBase {
     }
 
     public Animal getAnimal(){
-        String sql = "SELECT * FROM animal WHERE id = :id";
+        String sql = "SELECT * FROM animals WHERE id = :id";
         try(Connection con = DB.sql2o.open()){
             Animal animal = con.createQuery(sql)
                     .addParameter("id", this.animalId)

@@ -10,7 +10,7 @@ public class App {
     public static void main(String [] args){
         String layout = "templates/layout.vtl";
         enableDebugScreen();
-
+        staticFileLocation("/public");
         ProcessBuilder process = new ProcessBuilder();
         Integer port;
         // This tells our app that if Heroku sets a port for us, we need to use that port.
@@ -29,7 +29,7 @@ public class App {
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
-        post("/sighting", (request, response) -> {
+        post("/sighting", (request, response)->{
             Map<String, Object> model = new HashMap<String, Object>();
             String rangerName = request.queryParams("rangerName");
             String sightingLocation = request.queryParams("sightingLocation");
@@ -50,7 +50,8 @@ public class App {
             }
 
             model.put("sightings", Sighting.all());
-            model.put("template", "templates/View-Sighting.vtl");
+            model.put("template", "templates/index.vtl");
+            return new ModelAndView(model, layout);
         },new VelocityTemplateEngine());
     }
 }

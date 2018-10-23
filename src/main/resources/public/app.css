@@ -1,0 +1,14 @@
+input {
+    border-radius: 3px;
+    opacity: 0.6;
+}
+body{
+  font-family: 'Rancho', cursive;
+  font-size: 20px;
+  background: url("https://ihot-wallpapers.net/wp-content/uploads/2018/03/wildlife-hd-wallpaper.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
