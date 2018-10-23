@@ -28,5 +28,29 @@ public class App {
             model.put("template", "templates/index.vtl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
+
+        post("/sighting", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String rangerName = request.queryParams("rangerName");
+            String sightingLocation = request.queryParams("sightingLocation");
+            String animalName = request.queryParams("animalName");
+            String animalAge = request.queryParams("animalAge");
+            String animalHealth = request.queryParams("animalHealth");
+            String animalSpecies = request.queryParams("animalSpecies");
+
+            if (animalSpecies.equals("safe")){
+                RegisterAnimal registerAnimal = new RegisterAnimal(animalName,animalAge, animalHealth, animalSpecies);
+                registerAnimal.save();
+                Sighting sighting = new Sighting(rangerName, sightingLocation, registerAnimal.getId());
+                sighting.save();
+            }else if (animalSpecies.equals("endangered")){
+                EndangeredAnimal endangeredAnimal = new EndangeredAnimal(animalName, animalAge, animalHealth, animalSpecies);
+                endangeredAnimal.save();
+                Sighting sighting = new Sighting(rangerName, sightingLocation, endangeredAnimal.getId());
+            }
+
+            model.put("sightings", Sighting.all());
+            model.put("template", "templates/View-Sighting.vtl");
+        },new VelocityTemplateEngine());
     }
 }
